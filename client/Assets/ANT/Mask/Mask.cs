@@ -26,9 +26,7 @@ namespace ant{
 
 
 
-
-        //TOOLTIPS的panel层 
-        private GameObject _PANEL_TOOLTIPS;
+        GameObject _PANEL_TOOLTIPS;
         //实例化后的prefable
         private GameObject _prefable = null;
 
@@ -40,8 +38,10 @@ namespace ant{
         void Awake()
         {
             instance = this;
-            this._PANEL_TOOLTIPS = GameManager.getLayerBySceneLayerName(GameConstants.TIP_LAYER);
-            //this._item = toolTipPrefable.transform.Find("item").gameObject;
+            if (this._PANEL_TOOLTIPS == null)
+            {
+                this._PANEL_TOOLTIPS = GameManager.getLayerBySceneLayerName(GameConstants.TIP_LAYER);
+            }
         }
 
 
@@ -60,6 +60,10 @@ namespace ant{
         {
             if (parent== null)
             {
+                if (this._PANEL_TOOLTIPS == null)
+                {
+                    this._PANEL_TOOLTIPS = GameManager.getLayerBySceneLayerName(GameConstants.TIP_LAYER);
+                }
                 parent = this._PANEL_TOOLTIPS.transform;
             }
 

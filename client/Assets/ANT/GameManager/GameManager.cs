@@ -74,8 +74,11 @@ namespace ant
             //ToolTips.show("测试tooltips ");
             //Mask.show();//测试mask
         }
-       
-	}
+        public void test2()
+        {
+            Application.LoadLevel(1);
+        }
+    }
 
 
 }

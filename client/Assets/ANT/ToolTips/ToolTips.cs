@@ -23,11 +23,10 @@ namespace ant {
         public GameObject prefable;
 
 
-
+        GameObject _PANEL_TOOLTIPS;
         //消失时间  
         private const float TIME_ITEM_DESTROY = 0.5f;
-        //TOOLTIPS的panel层 
-        private GameObject _PANEL_TOOLTIPS;
+   
 
 
         /*** 单例模式 ***/
@@ -35,8 +34,7 @@ namespace ant {
         void Awake()
         {
             instance = this;
-            this._PANEL_TOOLTIPS = GameManager.getLayerBySceneLayerName(GameConstants.TIP_LAYER);
-            //this._item = toolTipPrefable.transform.Find("item").gameObject;
+           
         }
 
 
@@ -45,10 +43,16 @@ namespace ant {
 	     * */
         public void createItem(string text)
         {
-        
+
+            if (this._PANEL_TOOLTIPS == null)
+            {
+                this._PANEL_TOOLTIPS = GameManager.getLayerBySceneLayerName(GameConstants.TIP_LAYER);
+            }
+
+
             GameObject itemPref = Instantiate(prefable) as GameObject;
             itemPref.SetActive(true);
-            itemPref.transform.parent = this._PANEL_TOOLTIPS.transform;
+            itemPref.transform.parent = _PANEL_TOOLTIPS.transform;
             itemPref.transform.localScale = Vector3.one;
             itemPref.transform.localPosition = Vector3.zero;
 

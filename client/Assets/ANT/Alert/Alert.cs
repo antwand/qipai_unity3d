@@ -18,9 +18,7 @@ namespace ant
         {
             print("no");
         }
-
-
-     * 
+        
      * */
     public class Alert : MonoBehaviour
     {
@@ -29,9 +27,7 @@ namespace ant
 
 
 
-        
-        //TOOLTIPS的panel层 
-        private GameObject _PANEL_TOOLTIPS;
+        GameObject _PANEL_TOOLTIPS =null;
         //某一个item
         private GameObject _alertPrefable = null;
 
@@ -73,17 +69,23 @@ namespace ant
         {
             this._confirmfun = confirmfun;
             this._canclefun = canclefun;
-          
+
+            GameObject mask = null;
             if (_alertPrefable ==null)
             {
+                if (this._PANEL_TOOLTIPS == null) {
+                    this._PANEL_TOOLTIPS = GameManager.getLayerBySceneLayerName(GameConstants.TIP_LAYER);
+                }
+
                 _alertPrefable = Instantiate(prefable) as GameObject;
-                _alertPrefable.transform.parent = this._PANEL_TOOLTIPS.transform;
+                _alertPrefable.transform.parent = _PANEL_TOOLTIPS.transform;
                 _alertPrefable.transform.localScale = Vector3.one;
                 _alertPrefable.transform.localPosition = Vector3.zero;
 
 
-                GameObject mask = Mask.show(_alertPrefable.transform,0.5f);
+                mask = Mask.show(_alertPrefable.transform,0.5f);
                 mask.transform.SetSiblingIndex(0);
+                mask.name = "mask";
                 //int count = parentTransform.childCount;
                 //参数为物体在当前所在的子物体列表中的顺序
                 //count-1指把child物体在当前子物体列表的顺序设置为最后一个，0为第一个
@@ -96,6 +98,15 @@ namespace ant
                 Button btn_cancle = _alertPrefable.transform.Find("btn_cancle").transform.GetComponentInChildren<Button>();
                 EventTriggerListener.Get(btn_cancle.gameObject).onClick = OnBTNClick;
             }
+            else
+            {
+                //设置透明度
+                mask = _alertPrefable.transform.Find("mask").gameObject;
+                CanvasRenderer CanvasRenderer = mask.transform.GetComponent<CanvasRenderer>();
+                CanvasRenderer.SetAlpha(0.5f);
+            }
+
+           
 
             _alertPrefable.SetActive(true);
             Text Txt_titile = _alertPrefable.transform.Find("txt_title").transform.GetComponentInChildren<Text>();

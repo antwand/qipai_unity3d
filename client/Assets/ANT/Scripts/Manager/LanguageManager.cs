@@ -23,7 +23,7 @@ namespace ant
  * LanguageManager
  * LanguageManager  管理
 * 
-* @author  jack   jackdevelop@sina.com
+* @author  antwand   antwand@sina.com
 * @date  2015-10-15 下午4:05
 * @version 1.1
 */

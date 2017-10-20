@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -15,7 +15,7 @@ namespace ant{
     * 
     *  
     * 
-    * @author  jack   jackdevelop@sina.com
+    * @author  antwand   antwand@sina.com
     * @date  2015-10-5 上午10:11
     * @version 1.0
     */

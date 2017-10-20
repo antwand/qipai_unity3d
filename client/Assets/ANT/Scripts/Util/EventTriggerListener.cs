@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 
@@ -35,7 +35,7 @@ namespace ant
 		    }
 	    }
 
-    * @author  jack   jackdevelop@sina.com
+    * @author  antwand   antwand@sina.com
     * @date  2015-9-14 上午11:05
     * @version 1.0
     */

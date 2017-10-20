@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -9,7 +9,7 @@ namespace ant
  * SingletonManager
  * 单例管理
 * 
-* @author  jack   jackdevelop@sina.com
+* @author  antwand   antwand@sina.com
 * @date  2015-10-15 下午3:05
 * @version 1.1
 */

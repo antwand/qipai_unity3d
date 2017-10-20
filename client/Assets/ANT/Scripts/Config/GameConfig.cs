@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /**
  *  基础的 config 配置文件   
  * 
- * @author  jack   jackdevelop@sina.com
+ * @author  antwand   antwand@sina.com
  * @date  2015-9-14 上午11:25
  * @version 1.0
 * */
